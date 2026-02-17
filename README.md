@@ -40,7 +40,7 @@
     /* 🔽 Name position (lowered) */
     #nameText {
       position: absolute;
-      bottom: 300px;     /* move down here */
+      bottom: 70px;     /* move down here */
       width: 100%;
       font-size: 32px;
       font-weight: bold;
