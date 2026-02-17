@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+
 <html>
 <head>
   <title>Ramadan Greeting - HALA</title>
+
   <style>
-    body { 
-      text-align: center; 
-      font-family: Arial; 
+    body {
+      text-align: center;
+      font-family: Arial;
+      background: #f5f5f5;
     }
 
     #card {
@@ -14,16 +16,24 @@
       margin-top: 20px;
     }
 
+    #card img {
+      max-width: 900px;
+      width: 100%;
+      height: auto;
+    }
+
     #nameText {
       position: absolute;
-      bottom: 120px;
+      bottom: 120px;   /* Adjust if needed */
       width: 100%;
-      font-size: 28px;
+      font-size: 32px;
       font-weight: bold;
       color: #333;
+      text-transform: capitalize;
     }
   </style>
 </head>
+
 <body>
 
 <h2>Ramadan Greeting Generator</h2>
@@ -33,11 +43,10 @@
 
 <div id="card">
 
-  <!-- ✅ Your new image link -->
-  <img src="https://i.ibb.co/93N0TKDR/IMG-9980-1.jpg" width="600">
+  <!-- ✅ Your new direct image link -->
+  <img src="https://i.postimg.cc/523dpf2h/IMG-9980-(1).jpg">
 
   <div id="nameText"></div>
-
 </div>
 
 <script>
