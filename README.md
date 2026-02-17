@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Ramadan Greeting - HALA</title>
@@ -40,7 +41,7 @@
     /* 🔽 Name position (lowered) */
     #nameText {
       position: absolute;
-      bottom: 80px;     /* move down here */
+      bottom: 110px;     /* move down here */
       width: 100%;
       font-size: 32px;
       font-weight: bold;
