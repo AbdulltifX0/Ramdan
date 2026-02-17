@@ -31,6 +31,7 @@
 
 <body>
 
+<h2>Ramadan Greeting Generator</h2>
 
 <input type="text" id="username" placeholder="Enter your name">
 <br><br>
@@ -65,12 +66,12 @@ function generateCard() {
   ctx.drawImage(img, 0, 0);
 
   // text style
-  ctx.font = "bold 60px Arial";
+  ctx.font = "bold 35px Arial";
   ctx.fillStyle = "#333";
   ctx.textAlign = "center";
 
   // position (adjust if needed)
-  ctx.fillText(name, canvas.width / 2, canvas.height - 75);
+  ctx.fillText(name, canvas.width / 2, canvas.height - 100);
 }
 
 function downloadImage() {
