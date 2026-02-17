@@ -1,81 +1,83 @@
 <html>
 <head>
-  <title>Ramadan Greeting - HALA</title>
+  <title>Ramadan Greeting - HALA</title>
 
-  <style>
-    body {
-      text-align: center;
-      font-family: Arial;
-      background-color: #f5f5f5;
-    }
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial;
+      background: #f5f5f5;
+    }
 
-    h2 {
-      margin-top: 20px;
-    }
+    canvas {
+      margin-top: 20px;
+      max-width: 90%;
+    }
 
-    input {
-      padding: 10px;
-      font-size: 16px;
-      width: 200px;
-      text-align: center;
-    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      text-align: center;
+    }
 
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    #card {
-      position: relative;
-      display: inline-block;
-      margin-top: 25px;
-    }
-
-    #card img {
-      width: 600px;   /* keep high quality */
-      height: auto;
-    }
-
-    /* 🔽 Name position (lowered) */
-    #nameText {
-      position: absolute;
-      bottom: 70px;     /* move down here */
-      width: 100%;
-      font-size: 32px;
-      font-weight: bold;
-      color: #333;
-      text-align: center;
-      letter-spacing: 1px;
-    }
-  </style>
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 5px;
+    }
+  </style>
 </head>
 
 <body>
 
-<h2>Ramadan Greeting Generator</h2>
 
 <input type="text" id="username" placeholder="Enter your name">
+<br><br>
+
 <button onclick="generateCard()">Generate</button>
+<button onclick="downloadImage()">Download</button>
 
-<div id="card">
+<br>
 
-  <!-- ✅ Your direct image link -->
-  <img src="https://i.postimg.cc/523dpf2h/IMG-9980-(1).jpg" alt="Ramadan Card">
-
-  <div id="nameText"></div>
-</div>
+<canvas id="cardCanvas"></canvas>
 
 <script>
+const canvas = document.getElementById("cardCanvas");
+const ctx = canvas.getContext("2d");
+
+const img = new Image();
+img.crossOrigin = "anonymous"; // important for download
+
+img.src = "https://i.postimg.cc/523dpf2h/IMG-9980-(1).jpg";
+
+img.onload = function() {
+  canvas.width = img.width;
+  canvas.height = img.height;
+  ctx.drawImage(img, 0, 0);
+};
+
 function generateCard() {
-  var name = document.getElementById("username").value;
 
-  if(name.trim() === ""){
-    alert("Please enter your name");
-    return;
-  }
+  const name = document.getElementById("username").value;
 
-  document.getElementById("nameText").innerText = name;
+  // redraw image first
+  ctx.drawImage(img, 0, 0);
+
+  // text style
+  ctx.font = "bold 60px Arial";
+  ctx.fillStyle = "#333";
+  ctx.textAlign = "center";
+
+  // position (adjust if needed)
+  ctx.fillText(name, canvas.width / 2, canvas.height - 75);
+}
+
+function downloadImage() {
+  const link = document.createElement("a");
+  link.download = "Ramadan-Greeting.png";
+  link.href = canvas.toDataURL("image/png");
+  link.click();
 }
 </script>
 
