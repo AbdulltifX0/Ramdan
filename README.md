@@ -1,4 +1,3 @@
-
 <html>
 <head>
   <title>Ramadan Greeting - HALA</title>
@@ -7,29 +6,47 @@
     body {
       text-align: center;
       font-family: Arial;
-      background: #f5f5f5;
+      background-color: #f5f5f5;
+    }
+
+    h2 {
+      margin-top: 20px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 200px;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
     }
 
     #card {
       position: relative;
       display: inline-block;
-      margin-top: 20px;
+      margin-top: 25px;
     }
 
     #card img {
-      max-width: 900px;
-      width: 100%;
+      width: 600px;   /* keep high quality */
       height: auto;
     }
 
+    /* 🔽 Name position (lowered) */
     #nameText {
       position: absolute;
-      bottom: 120px;   /* Adjust if needed */
+      bottom: 80px;     /* move down here */
       width: 100%;
       font-size: 32px;
       font-weight: bold;
       color: #333;
-      text-transform: capitalize;
+      text-align: center;
+      letter-spacing: 1px;
     }
   </style>
 </head>
@@ -43,8 +60,8 @@
 
 <div id="card">
 
-  <!-- ✅ Your new direct image link -->
-  <img src="https://i.postimg.cc/523dpf2h/IMG-9980-(1).jpg">
+  <!-- ✅ Your direct image link -->
+  <img src="https://i.postimg.cc/523dpf2h/IMG-9980-(1).jpg" alt="Ramadan Card">
 
   <div id="nameText"></div>
 </div>
@@ -52,6 +69,12 @@
 <script>
 function generateCard() {
   var name = document.getElementById("username").value;
+
+  if(name.trim() === ""){
+    alert("Please enter your name");
+    return;
+  }
+
   document.getElementById("nameText").innerText = name;
 }
 </script>
